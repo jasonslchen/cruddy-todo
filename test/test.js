@@ -61,12 +61,12 @@ describe('getNextUniqueId', () => {
 
 });
 
-xdescribe('todos', () => {
+describe('todos', () => {
   before(initializeTestFiles);
   beforeEach(initializeTestCounter);
   beforeEach(cleanTestDatastore);
 
-  xdescribe('create', () => {
+  describe('create', () => {
     it('should create a new file for each todo', (done) => {
       todos.create('todo1', (err, data) => {
         const todoCount = fs.readdirSync(todos.dataDir).length;
@@ -106,7 +106,7 @@ xdescribe('todos', () => {
     });
   });
 
-  xdescribe('readAll', () => {
+  describe('readAll', () => {
     it('should return an empty array when there are no todos', (done) => {
       todos.readAll((err, todoList) => {
         expect(err).to.be.null;
@@ -133,7 +133,7 @@ xdescribe('todos', () => {
 
   });
 
-  xdescribe('readOne', () => {
+  describe('readOne', () => {
     it('should return an error for non-existant todo', (done) => {
       todos.readOne('notAnId', (err, todo) => {
         expect(err).to.exist;
@@ -153,7 +153,7 @@ xdescribe('todos', () => {
     });
   });
 
-  xdescribe('update', () => {
+  describe('update', () => {
     beforeEach((done) => {
       todos.create('original todo', done);
     });
@@ -187,7 +187,7 @@ xdescribe('todos', () => {
     });
   });
 
-  xdescribe('delete', () => {
+  describe('delete', () => {
     beforeEach((done) => {
       todos.create('delete this todo', done);
     });

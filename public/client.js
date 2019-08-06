@@ -27,6 +27,7 @@ $(() => {
   };
 
   var addAllTodos = (todos) => {
+    console.log('add to todos');
     _.each(todos, (todo) => {
       addTodo(todo);
     });
