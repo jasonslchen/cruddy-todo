@@ -25,9 +25,19 @@ exports.readAll = (callback) => {
   // });
   // callback(null, data);
   //callback takes an array of our {id, id} (for now)
-
-
-
+  let list;
+  fs.readdir(`${exports.dataDir}`, (err, idArray) => {
+    if (err) {
+      throw err;
+    } else {
+      let todoList = list = _.map(idArray, (fileName) => {
+        fileName = fileName.split('.')[0];
+        return {id: fileName, text: fileName};
+      });
+      callback(err, todoList);
+    }
+  });
+  return list;
 };
 
 exports.readOne = (id, callback) => {
