@@ -31,14 +31,24 @@ app.post('/todo', (req, res) => {
 
 // Read all (cRud) -- collection route
 app.get('/todo', (req, res) => {
-  Todo.readAll((err, todos) => {
+  Todo.readAll( (err, todos) => {
     if (err) {
       res.sendStatus(400);
     } else {
       res.status(200).json(todos);
     }
   });
-});
+  //if changed readAll to pure promise structure
+  // .then((todos) => {
+  //   res.status(200).json(todos);
+  // })
+  // .catch((err) => {
+  //   res.sendStatus(400);
+  // })
+
+
+}
+);
 
 // Read one (cRud) -- member route
 app.get('/todo/:id', (req, res) => {
